@@ -1,0 +1,17 @@
+.original-question {
+  background-color: #FFF8DC;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#better-editor .CodeMirror {
+  font-size: 14px;
+  font-family: Consolas,Menlo,Monaco,"Lucida Console","Liberation Mono,DejaVu Sans Mono","Bitstream Vera Sans Mono","Courier New",monospace,sans-serif;
+
+  position: relative !important;
+  box-sizing: border-box;
+}
+
+#better-editor .editor-statusbar {
+  margin-bottom: 5px;
+}
