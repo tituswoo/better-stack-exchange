@@ -12,7 +12,10 @@
 	],
 	"content_scripts": [
 		{
-			"matches": ["http://stackoverflow.com/*"],
+			"matches": [
+				"http://meta.stackexchange.com/posts/*/edit",
+				"http://meta.stackexchange.com/questions/ask"
+			],
 			"js": ["content/index.js"]
 		}
 	]
