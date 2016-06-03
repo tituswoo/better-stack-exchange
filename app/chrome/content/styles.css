@@ -45,3 +45,7 @@
 #better-editor .editor-statusbar {
   margin-bottom: 5px;
 }
+
+#better-editor .editor-toolbar {
+  border-radius: 0 !important;
+}
