@@ -3,18 +3,35 @@
 const path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-const distPath = path.join(__dirname, '../../dist')
+const distPath = path.join(__dirname, '../../dist/chrome')
 
 module.exports = {
   context: __dirname,
-  entry: './content/index.js',
+  entry: {
+    'content': './content/index.js'
+  },
   output: {
     path: distPath,
-    filename: 'index.js'
+    filename: '[name]/index.js'
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        loader: 'babel',
+        query: {
+          presets: ['es2015'],
+          plugins: [
+            'transform-object-rest-spread'
+          ]
+        }
+      }
+    ]
   },
   plugins: [
     new CopyWebpackPlugin([
-      { from: 'manifest.json', to: path.join(distPath, 'chrome/')}
+      { from: 'manifest.json', to: distPath }
     ])
   ]
 }
