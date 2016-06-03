@@ -4,6 +4,23 @@
   box-sizing: border-box;
 }
 
+.post-editor {
+  width: auto;
+}
+
+.post-editor .original-question {
+  width: auto !important;
+}
+
+.post-editor .original-question > .grippie {
+  margin-right: 0 !important;
+}
+
+#mainbar > .form-item > table, .post-editor .form-item > table {
+  width: auto !important;
+  margin-bottom: 10px;
+}
+
 #better-editor .CodeMirror {
   font-size: 14px;
   font-family: Consolas,Menlo,Monaco,"Lucida Console","Liberation Mono,DejaVu Sans Mono","Bitstream Vera Sans Mono","Courier New",monospace,sans-serif;
