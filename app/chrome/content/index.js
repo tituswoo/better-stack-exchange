@@ -8,6 +8,8 @@ console.info('ENHANCING STACK EXCHANGE')
 let gap = document.querySelector('.post-editor .fl')
 gap.parentNode.removeChild(gap)
 
+// Make a new editor:
+
 let oldEditor = document.querySelector('.wmd-container').parentNode
 oldEditor.style.display = 'none'
 let oldEditorTextArea = oldEditor.querySelector('textarea')

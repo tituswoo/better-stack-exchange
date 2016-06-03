@@ -29,6 +29,10 @@
   box-sizing: border-box;
 }
 
+#better-editor .CodeMirror-fullscreen {
+  position: fixed !important;
+}
+
 #better-editor .editor-statusbar {
   margin-bottom: 5px;
 }
