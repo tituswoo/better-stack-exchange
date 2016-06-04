@@ -49,3 +49,20 @@
 #better-editor .editor-toolbar {
   border-radius: 0 !important;
 }
+
+#better-editor .editor-preview {
+  word-wrap: break-word;
+  font-size: 15px;
+  line-height: 1.3;
+  font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+  background-color: white;
+}
+
+#better-editor .editor-preview pre {
+  padding: 5px;
+  background-color: #eff0f1;
+}
+
+#better-editor .editor-preview code {
+  font-size: 13px;
+}
