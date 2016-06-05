@@ -4,17 +4,17 @@
 	"name": "Better Stack Exchange",
 	"description": "Improves Stack Exchange in various ways",
 	"version": "0.0.1",
-	"permissions": [
-		"tabs",
-		"activeTab",
-		"background",
-		"http://*/"
-	],
+	"permissions": [],
 	"content_scripts": [
 		{
 			"matches": [
-				"http://meta.stackexchange.com/posts/*/edit",
-				"http://meta.stackexchange.com/questions/ask"
+				"*://*.stackoverflow.com/*",
+				"*://*.serverfault.com/*",
+				"*://*.superuser.com/*",
+				"*://*.askubuntu.com/*",
+				"*://*.stackapps.com/*",
+				"*://*.mathoverflow.net/*",
+				"*://*.stackexchange.com/*"
 			],
 			"js": ["content/index.js"]
 		}
