@@ -14,8 +14,9 @@ OldEditor.hide()
 let textarea = document.createElement('textarea')
 OldEditor.editor.parentNode.insertBefore(textarea, OldEditor.editor.nextSibling)
 
+// Create a shiny new markdown editor, and sync it up with
+// the contents of the old editor:
 let newEditor = betterEditor(textarea)
-
 newEditor.codemirror.setOption('viewportMargin', Infinity)
 newEditor.value(OldEditor.getValue())
 
