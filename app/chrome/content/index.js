@@ -48,10 +48,12 @@ const config = {
             const url = newText.substr(startIndex)
 
             let doc = editor.codemirror.getDoc()
-            const selectedText = doc.getSelection()
+            const selectedText = doc.getSelection() || 'alt'
 
             newText = `![${selectedText}](${url})`
             doc.replaceSelection(newText, 'around')
+
+            oldEditorTextArea.value = doc.getValue()
           }
         }, 300)
       },
