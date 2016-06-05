@@ -1,6 +1,10 @@
 let editor = document.querySelector('.wmd-container').parentNode
+let textarea = editor.querySelector('textarea')
 
 export default {
   editor,
-  textarea: editor.querySelector('textarea')
+  setValue(newValue) {
+    textarea.value = newValue
+  },
+  getValue: () => textarea.value
 }

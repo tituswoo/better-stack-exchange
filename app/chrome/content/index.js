@@ -34,11 +34,11 @@ const config = {
 // Create the new markdown editor:
 let newEditor = new SimpleMDE(config)
 newEditor.codemirror.setOption('viewportMargin', Infinity)
-newEditor.value(OldEditor.textarea.value)
+newEditor.value(OldEditor.getValue())
 
 // Updated the old markdown editor's backing textarea with
 // the contents of the new markdown editor.
 // This is how changes are saved when you add/update a question/answer.
 newEditor.codemirror.on('change', (instance, changeObj) => {
-  OldEditor.textarea.value = newEditor.value()
+  OldEditor.setValue(newEditor.value())
 })

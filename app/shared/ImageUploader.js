@@ -1,21 +1,17 @@
 import OldEditor from 'shared/OldEditor'
-const textarea = OldEditor.textarea
 
 export const uploadImage = (cb) => {
-  const originalText = textarea.value
-  textarea.value = ''
+  const originalText = OldEditor.getValue()
+  OldEditor.setValue('')
   document.querySelector('#wmd-image-button-279919').click()
-  console.log('clickety click')
   let checker = setInterval(() => {
     let modal = document.querySelector('.modal.image-upload')
     if (modal === null) {
       clearInterval(checker)
-      console.log('done')
-      const newValue = textarea.value.split(/\n/).pop()
+      const newValue = OldEditor.getValue().split(/\n/).pop()
       const startIndex = newValue.indexOf('http')
       const url = newValue.substr(startIndex)
-      textarea.value = originalText
-      console.log('url:', url)
+      OldEditor.setValue(originalText)
       if (url) cb(url)
     }
   }, 300)

@@ -1,8 +1,6 @@
 import { uploadImage } from 'shared/ImageUploader'
 import OldEditor from 'shared/OldEditor'
 
-const textarea = OldEditor.textarea
-
 const insertImage = {
   name: 'insert-image',
   className: 'fa fa-picture-o',
@@ -15,7 +13,7 @@ const insertImage = {
       const mdImage = `![${selectedText}](${imageUrl})`
       doc.replaceSelection(mdImage, 'around')
 
-      textarea.value = doc.getValue()
+      OldEditor.setValue(doc.getValue())
     })
   }
 }
