@@ -17,7 +17,7 @@ export default (textarea) => {
 function wrap(textarea) {
   // Create container for the new markdown editor:
   let editorContainer = document.createElement('div')
-  editorContainer.id = 'better-editor'
+  editorContainer.className = 'better-editor'
 
   // Wrap the textarea with the container:
   textarea.parentNode.insertBefore(editorContainer, textarea.nextSibling)

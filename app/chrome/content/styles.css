@@ -40,7 +40,7 @@
   margin-bottom: 10px;
 }
 
-#better-editor .CodeMirror {
+.better-editor .CodeMirror {
   font-size: 14px;
   font-family: Consolas,Menlo,Monaco,"Lucida Console","Liberation Mono,DejaVu Sans Mono","Bitstream Vera Sans Mono","Courier New",monospace,sans-serif;
 
@@ -48,19 +48,19 @@
   box-sizing: border-box;
 }
 
-#better-editor .CodeMirror-fullscreen {
+.better-editor .CodeMirror-fullscreen {
   position: fixed !important;
 }
 
-#better-editor .editor-statusbar {
+.better-editor .editor-statusbar {
   margin-bottom: 5px;
 }
 
-#better-editor .editor-toolbar {
+.better-editor .editor-toolbar {
   border-radius: 0 !important;
 }
 
-#better-editor .editor-preview {
+.better-editor .editor-preview {
   word-wrap: break-word;
   font-size: 15px;
   line-height: 1.3;
@@ -68,11 +68,11 @@
   background-color: white;
 }
 
-#better-editor .editor-preview pre {
+.better-editor .editor-preview pre {
   padding: 5px;
   background-color: #eff0f1;
 }
 
-#better-editor .editor-preview code {
+.better-editor .editor-preview code {
   font-size: 13px;
 }
