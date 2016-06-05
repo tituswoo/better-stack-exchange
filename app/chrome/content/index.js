@@ -9,3 +9,9 @@ if (/.*\/questions\/.*\/.*/.test(url)) {
   console.info('answering a question')
   enhanceQAEditor()
 }
+
+// If asking a new question:
+if (/questions\/ask$/.test(url)) {
+  console.info('asking a new question')
+  enhanceQAEditor()
+}
