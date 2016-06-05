@@ -6,31 +6,25 @@ require('./styles.css')
 
 import ImageUploader from 'shared/ImageUploader'
 
-console.info('ENHANCING STACK EXCHANGE')
-
-// Remove the awk gap between original editor and live preview
-let gap = document.querySelector('.post-editor .fl')
-gap.parentNode.removeChild(gap)
-
-// Hide the original markdown previewer:
-let mdPreview = document.querySelector('.wmd-preview')
-mdPreview.style.display = 'none'
-
-// Make a new editor:
-
+// Hide the old markdown editor:
 let oldEditor = document.querySelector('.wmd-container').parentNode
 oldEditor.style.overflow = 'hidden'
 oldEditor.style.height = 0
+
+// Get the backing text area for the old markdown editor:
 let oldEditorTextArea = oldEditor.querySelector('textarea')
 
+// Prime the image uploader functionality:
+const uploadImage = ImageUploader(oldEditorTextArea)
+
+// Create container for the new markdown editor:
 let editorContainer = document.createElement('div')
 editorContainer.id = 'better-editor'
 
+// Create backing textarea for the new markdown editor:
 let editor = document.createElement('textarea')
 oldEditor.parentNode.insertBefore(editorContainer, oldEditor.nextSibling)
 editorContainer.appendChild(editor)
-
-const uploadImage = ImageUploader(oldEditorTextArea)
 
 const config = {
   element: editor,
@@ -46,8 +40,8 @@ const config = {
           const doc = editor.codemirror.getDoc()
           const selectedText = doc.getSelection() || 'alt'
 
-          const newText = `![${selectedText}](${imageUrl})`
-          doc.replaceSelection(newText, 'around')
+          const mdImage = `![${selectedText}](${imageUrl})`
+          doc.replaceSelection(mdImage, 'around')
 
           oldEditorTextArea.value = doc.getValue()
         })
@@ -71,10 +65,14 @@ const config = {
   }
 }
 
+// Create the new markdown editor:
 let newEditor = new SimpleMDE(config)
 newEditor.codemirror.setOption('viewportMargin', Infinity)
 newEditor.value(oldEditorTextArea.value)
 
+// Updated the old markdown editor's backing textarea with
+// the contents of the new markdown editor.
+// This is how changes are saved when you add/update a question/answer.
 newEditor.codemirror.on('change', (instance, changeObj) => {
   oldEditorTextArea.value = newEditor.value()
 })

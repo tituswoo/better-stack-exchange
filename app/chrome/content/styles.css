@@ -20,6 +20,16 @@
   width: 100% !important;
 }
 
+/* Remove the awk gap between original editor and live preview */
+.post-editor .fl {
+  display: none;
+}
+
+/* Hide the original markdown previewer: */
+.wmd-preview {
+  display: none;
+}
+
 #title {
   width: 100% !important;
   box-sizing: border-box !important;
