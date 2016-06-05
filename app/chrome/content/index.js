@@ -4,6 +4,8 @@ require('script!highlight.js/lib/highlight.js')
 require('highlight.js/styles/github.css')
 require('./styles.css')
 
+import ImageUploader from 'shared/ImageUploader'
+
 console.info('ENHANCING STACK EXCHANGE')
 
 // Remove the awk gap between original editor and live preview
@@ -28,37 +30,28 @@ let editor = document.createElement('textarea')
 oldEditor.parentNode.insertBefore(editorContainer, oldEditor.nextSibling)
 editorContainer.appendChild(editor)
 
+const uploadImage = ImageUploader(oldEditorTextArea)
+
 const config = {
   element: editor,
   toolbar: [
     'bold', 'italic', '|',
     'link', 'quote', 'code',
     {
-      name: 'upload-image',
-      action(editor) {
-        oldEditorTextArea.value = ''
-        document.querySelector('#wmd-image-button-279919').click()
-        console.log('clicked...')
-        let check = setInterval(() => {
-          let modal = document.querySelector('.modal.image-upload')
-          if (modal === null) {
-            clearInterval(check)
-            let newText = oldEditorTextArea.value.split(/\n/).pop()
-            const startIndex = newText.indexOf('http')
-            const url = newText.substr(startIndex)
-
-            let doc = editor.codemirror.getDoc()
-            const selectedText = doc.getSelection() || 'alt'
-
-            newText = `![${selectedText}](${url})`
-            doc.replaceSelection(newText, 'around')
-
-            oldEditorTextArea.value = doc.getValue()
-          }
-        }, 300)
-      },
+      name: 'insert-image',
       className: 'fa fa-picture-o',
-      title: 'Upload Picture'
+      title: 'Insert Image',
+      action(editor) {
+        uploadImage((imageUrl) => {
+          const doc = editor.codemirror.getDoc()
+          const selectedText = doc.getSelection() || 'alt'
+
+          const newText = `![${selectedText}](${imageUrl})`
+          doc.replaceSelection(newText, 'around')
+
+          oldEditorTextArea.value = doc.getValue()
+        })
+      }
     },
     {
       name: 'snippet',
@@ -79,11 +72,7 @@ const config = {
 }
 
 let newEditor = new SimpleMDE(config)
-
-newEditor.value('Aloha my friends. \`code in here\`')
-
 newEditor.codemirror.setOption('viewportMargin', Infinity)
-
 newEditor.value(oldEditorTextArea.value)
 
 newEditor.codemirror.on('change', (instance, changeObj) => {

@@ -15,6 +15,10 @@ module.exports = {
     filename: '[name]/index.js'
   },
   resolve: {
+    root: path.resolve('./app'),
+    alias: {
+      shared: path.resolve('./app/shared')
+    },
     extensions: ['', '.webpack.js', '.web.js', '.js', '.css']
   },
   module: {
