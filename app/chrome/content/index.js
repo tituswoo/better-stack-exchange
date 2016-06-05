@@ -7,9 +7,7 @@ require('./styles.css')
 import OldEditor from 'shared/OldEditor'
 import betterEditor from 'shared/BetterEditor'
 
-// Hide the old markdown editor:
-OldEditor.editor.style.overflow = 'hidden'
-OldEditor.editor.style.height = 0
+OldEditor.hide()
 
 // Create backing textarea for the new markdown editor,
 // and place it next to the old editor:

@@ -9,5 +9,9 @@ export default {
   getValue: () => textarea.value,
   uploadImage() {
     document.querySelector('#wmd-image-button-279919').click()
+  },
+  hide() {
+    editor.style.overflow = 'hidden'
+    editor.style.height = 0
   }
 }
