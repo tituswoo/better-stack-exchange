@@ -1,22 +1,22 @@
-const uploader = (oldEditorTextArea) => {
-  return (cb) => {
-    const originalText = oldEditorTextArea.value
-    oldEditorTextArea.value = ''
-    document.querySelector('#wmd-image-button-279919').click()
-    let checker = setInterval(() => {
-      let modal = document.querySelector('.modal.image-upload')
-      if (modal === null) {
-        clearInterval(checker)
-        const newValue = oldEditorTextArea.value.split(/\n/).pop()
-        const startIndex = newValue.indexOf('http')
-        const url = newValue.substr(startIndex)
+import OldEditor from 'shared/OldEditor'
+const textarea = OldEditor.textarea
 
-        oldEditorTextArea.value = originalText
-
-        if (url) cb(url)
-      }
-    }, 300)
-  }
+export const uploadImage = (cb) => {
+  const originalText = textarea.value
+  textarea.value = ''
+  document.querySelector('#wmd-image-button-279919').click()
+  console.log('clickety click')
+  let checker = setInterval(() => {
+    let modal = document.querySelector('.modal.image-upload')
+    if (modal === null) {
+      clearInterval(checker)
+      console.log('done')
+      const newValue = textarea.value.split(/\n/).pop()
+      const startIndex = newValue.indexOf('http')
+      const url = newValue.substr(startIndex)
+      textarea.value = originalText
+      console.log('url:', url)
+      if (url) cb(url)
+    }
+  }, 300)
 }
-
-export default uploader
