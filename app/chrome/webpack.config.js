@@ -14,6 +14,9 @@ module.exports = {
     path: distPath,
     filename: '[name]/index.js'
   },
+  resolve: {
+    extensions: ['', '.webpack.js', '.web.js', '.js', '.css']
+  },
   module: {
     loaders: [
       {

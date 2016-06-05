@@ -17,7 +17,7 @@ mdPreview.style.display = 'none'
 // Make a new editor:
 
 let oldEditor = document.querySelector('.wmd-container').parentNode
-oldEditor.style.display = 'none'
+// oldEditor.style.display = 'none'
 let oldEditorTextArea = oldEditor.querySelector('textarea')
 
 let editorContainer = document.createElement('div')
@@ -31,7 +31,38 @@ const config = {
   element: editor,
   toolbar: [
     'bold', 'italic', '|',
-    'link', 'quote', 'code', '|',
+    'link', 'quote', 'code',
+    {
+      name: 'upload-image',
+      action(editor) {
+        oldEditorTextArea.value = ''
+        document.querySelector('#wmd-image-button-279919').click()
+        let check = setInterval(() => {
+          let modal = document.querySelector('.modal.image-upload')
+          if (modal === null) {
+            clearInterval(check)
+            let newText = oldEditorTextArea.value.split(/\n/).pop()
+            const startIndex = newText.indexOf('http')
+            const url = newText.substr(startIndex)
+
+            let doc = editor.codemirror.getDoc()
+            const selectedText = doc.getSelection()
+
+            newText = `![${selectedText}](${url})`
+            doc.replaceSelection(newText, 'around')
+          }
+        }, 300)
+      },
+      className: 'fa fa-picture-o',
+      title: 'Upload Picture'
+    },
+    {
+      name: 'snippet',
+      action(editor) {
+      },
+      className: 'fa fa-file-code-o',
+      title: 'Insert Snippet'
+    }, '|',
     'ordered-list', 'unordered-list', '|',
     'preview', 'side-by-side', 'fullscreen'
   ],
