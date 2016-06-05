@@ -6,33 +6,19 @@ require('./styles.css')
 
 import toolbar from 'shared/toolbar'
 import OldEditor from 'shared/OldEditor'
+import betterEditor from 'shared/BetterEditor'
 
 // Hide the old markdown editor:
 OldEditor.editor.style.overflow = 'hidden'
 OldEditor.editor.style.height = 0
 
-// Create container for the new markdown editor:
-let editorContainer = document.createElement('div')
-editorContainer.id = 'better-editor'
+// Create backing textarea for the new markdown editor,
+// and place it next to the old editor:
+let textarea = document.createElement('textarea')
+OldEditor.editor.parentNode.insertBefore(textarea, OldEditor.editor.nextSibling)
 
-// Create backing textarea for the new markdown editor:
-let editor = document.createElement('textarea')
-OldEditor.editor.parentNode.insertBefore(editorContainer, OldEditor.editor.nextSibling)
-editorContainer.appendChild(editor)
+let newEditor = betterEditor(textarea)
 
-const config = {
-  element: editor,
-  toolbar,
-  tabSize: 4,
-  spellChecker: false,
-  status: false,
-  renderingConfig: {
-    codeSyntaxHighlighting: true
-  }
-}
-
-// Create the new markdown editor:
-let newEditor = new SimpleMDE(config)
 newEditor.codemirror.setOption('viewportMargin', Infinity)
 newEditor.value(OldEditor.getValue())
 
