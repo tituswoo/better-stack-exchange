@@ -6,5 +6,8 @@ export default {
   setValue(newValue) {
     textarea.value = newValue
   },
-  getValue: () => textarea.value
+  getValue: () => textarea.value,
+  uploadImage() {
+    document.querySelector('#wmd-image-button-279919').click()
+  }
 }

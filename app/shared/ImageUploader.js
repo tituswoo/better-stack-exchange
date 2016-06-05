@@ -3,7 +3,7 @@ import OldEditor from 'shared/OldEditor'
 export const uploadImage = (cb) => {
   const originalText = OldEditor.getValue()
   OldEditor.setValue('')
-  document.querySelector('#wmd-image-button-279919').click()
+  OldEditor.uploadImage()
   let checker = setInterval(() => {
     let modal = document.querySelector('.modal.image-upload')
     if (modal === null) {
