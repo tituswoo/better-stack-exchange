@@ -8,7 +8,9 @@ export default {
   },
   getValue: () => textarea.value,
   uploadImage() {
-    document.querySelector('#wmd-image-button-279919').click()
+    let attempt1 = document.getElementById('wmd-image-button')
+    let attempt2 = document.getElementById('wmd-image-button-279919')
+    attempt1 ? attempt1.click() : attempt2.click()
   },
   hide() {
     editor.style.overflow = 'hidden'
