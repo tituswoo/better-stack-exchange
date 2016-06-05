@@ -17,7 +17,8 @@ mdPreview.style.display = 'none'
 // Make a new editor:
 
 let oldEditor = document.querySelector('.wmd-container').parentNode
-// oldEditor.style.display = 'none'
+oldEditor.style.overflow = 'hidden'
+oldEditor.style.height = 0
 let oldEditorTextArea = oldEditor.querySelector('textarea')
 
 let editorContainer = document.createElement('div')
@@ -37,6 +38,7 @@ const config = {
       action(editor) {
         oldEditorTextArea.value = ''
         document.querySelector('#wmd-image-button-279919').click()
+        console.log('clicked...')
         let check = setInterval(() => {
           let modal = document.querySelector('.modal.image-upload')
           if (modal === null) {
