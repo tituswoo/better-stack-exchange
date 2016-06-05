@@ -4,7 +4,6 @@ require('script!highlight.js/lib/highlight.js')
 require('highlight.js/styles/github.css')
 require('./styles.css')
 
-import toolbar from 'shared/toolbar'
 import OldEditor from 'shared/OldEditor'
 import betterEditor from 'shared/BetterEditor'
 
