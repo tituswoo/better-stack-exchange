@@ -1,3 +1,5 @@
+require('shared/styles/BetterEditor')
+
 import OldEditor from 'shared/OldEditor'
 import toolbar from 'shared/toolbar'
 

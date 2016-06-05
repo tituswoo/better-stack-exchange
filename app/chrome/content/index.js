@@ -2,7 +2,7 @@ require('script!simplemde/dist/simplemde.min.js')
 require('simplemde/dist/simplemde.min.css')
 require('script!highlight.js/lib/highlight.js')
 require('highlight.js/styles/github.css')
-require('./styles.css')
+require('shared/styles/general.css')
 
 import OldEditor from 'shared/OldEditor'
 import betterEditor from 'shared/BetterEditor'
