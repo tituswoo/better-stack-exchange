@@ -6,7 +6,7 @@ import enhanceQuestionForm from 'shared/enhancers/enhanceQuestionForm'
 const url = document.location.href
 
 // If answering a question:
-if (/posts\/.*\/edit/.test(url)) {
+if (/posts\/.*\/edit/.test(url) || /questions\/.*\/.*/.test(url)) {
   enhanceQAEditor()
 }
 
