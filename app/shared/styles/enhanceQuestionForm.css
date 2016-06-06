@@ -43,3 +43,8 @@
 .community-option {
   top: 5px;
 }
+
+#edit-comment {
+  width: 100% !important;
+  box-sizing: border-box;
+}
