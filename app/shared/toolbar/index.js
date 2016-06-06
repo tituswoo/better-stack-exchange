@@ -1,7 +1,8 @@
 import insertImageTool from 'shared/toolbar/insertImageTool'
+import insertKbdTool from 'shared/toolbar/insertKbdTool'
 
 export default [
-  'bold', 'italic', '|',
+  'bold', 'italic', insertKbdTool, '|',
   'link', 'quote', 'code',
   insertImageTool,
   {
