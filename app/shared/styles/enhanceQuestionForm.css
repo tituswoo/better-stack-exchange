@@ -1,0 +1,18 @@
+#question-form #question-suggestions {
+  width: auto !important;
+}
+
+#question-form .form-item {
+  padding: 0 !important;
+}
+
+#question-form #title {
+  font-size: 25px;
+  font-weight: 800;
+  width: 100%;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  padding: 0;
+}
