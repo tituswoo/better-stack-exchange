@@ -1,9 +1,23 @@
+#question-form .form-item {
+  margin-top: 10px;
+}
+
 #question-form #question-suggestions {
   width: auto !important;
+  background-color: #f5f5f5;
+  padding: 0 10px 10px 10px;
+}
+
+#question-form #question-suggestions label {
+  color: gray;
 }
 
 #question-form .form-item {
   padding: 0 !important;
+}
+
+#question-form .ask-title {
+  margin-top: 0;
 }
 
 #question-form #title {
@@ -15,4 +29,13 @@
   box-shadow: none;
   box-sizing: border-box;
   padding: 0;
+}
+
+#question-form .tag-editor {
+  width: auto !important;
+  box-shadow: none;
+}
+
+#question-form #tag-suggestions {
+  min-height: 0;
 }
