@@ -39,3 +39,7 @@
 #question-form #tag-suggestions {
   min-height: 0;
 }
+
+.community-option {
+  top: 5px;
+}
