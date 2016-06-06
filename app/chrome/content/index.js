@@ -16,7 +16,6 @@ if (/questions\/.*\/.*/.test(url)) {
 // If asking a new question:
 if (/questions\/ask$/.test(url)) {
   console.info('asking a new question')
-  enhanceQAEditor()
   enhanceQuestionForm()
-  enhanceQuestionTags()
+  enhanceQAEditor()
 }
