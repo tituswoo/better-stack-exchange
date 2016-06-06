@@ -3,8 +3,7 @@ import insertKbdTool from 'shared/toolbar/insertKbdTool'
 
 export default [
   'bold', 'italic', insertKbdTool, '|',
-  'link', 'quote', 'code',
-  insertImageTool,
+  'link', 'quote', 'code', insertImageTool,
   {
     name: 'snippet',
     action(editor) {
