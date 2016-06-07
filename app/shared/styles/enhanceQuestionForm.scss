@@ -3,14 +3,37 @@
     margin-top: 10px;
   }
 
+  #title {
+    font-size: 22px;
+    font-weight: 800;
+    width: 100%;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    box-sizing: border-box;
+    padding: 0;
+  }
+
   #question-suggestions {
     width: auto !important;
     background-color: #f5f5f5;
     padding: 0 10px 10px 10px;
-  }
 
-  #question-suggestions label {
-    color: gray;
+    label {
+      color: gray;
+    }
+
+    .answer-votes {
+      border: 1px solid rgb(210, 210, 210);
+
+      &.answered-accepted {
+        border: none;
+      }
+    }
+
+    .answer-summary:hover {
+      background-color: rgba(234, 234, 234, 0.77);
+    }
   }
 
   .form-item {
@@ -19,17 +42,6 @@
 
   .ask-title {
     margin-top: 0;
-  }
-
-  #title {
-    font-size: 25px;
-    font-weight: 800;
-    width: 100%;
-    outline: none;
-    border: none;
-    box-shadow: none;
-    box-sizing: border-box;
-    padding: 0;
   }
 
   .tag-editor {
