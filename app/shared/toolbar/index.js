@@ -5,6 +5,6 @@ import insertSnippetTool from 'shared/toolbar/insertSnippetTool'
 export default [
   'bold', 'italic', insertKbdTool, '|',
   'link', 'quote', 'code', insertImageTool, insertSnippetTool, '|',
-  'ordered-list', 'unordered-list', '|',
+  'ordered-list', 'unordered-list', 'horizontal-rule', '|',
   'preview', 'side-by-side', 'fullscreen'
 ]
