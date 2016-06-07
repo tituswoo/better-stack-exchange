@@ -4,9 +4,8 @@ import OldEditor from 'shared/OldEditor'
 import toolbar from 'shared/toolbar'
 
 export default (textarea) => {
-  let { textarea: backingTxt, container } = wrap(textarea)
-  let editor = new SimpleMDE({
-    element: backingTxt,
+  return new SimpleMDE({
+    element: wrap(textarea),
     toolbar,
     tabSize: 4,
     indentWithTabs: false,
@@ -20,26 +19,16 @@ export default (textarea) => {
       strikethrough: false
     }
   })
-
-  window.addEventListener('scroll', (e) => {
-
-  })
-
-  editor.codemirror.on('drop', (e) => {
-    console.log('DROPPED', e)
-  })
-
-  return editor
 }
 
 function wrap(textarea) {
   // Create container for the new markdown editor:
-  let container = document.createElement('div')
-  container.className = 'better-editor'
+  let editorContainer = document.createElement('div')
+  editorContainer.className = 'better-editor'
 
   // Wrap the textarea with the container:
-  textarea.parentNode.insertBefore(container, textarea.nextSibling)
-  container.appendChild(textarea)
+  textarea.parentNode.insertBefore(editorContainer, textarea.nextSibling)
+  editorContainer.appendChild(textarea)
 
-  return { textarea, container }
+  return textarea
 }
