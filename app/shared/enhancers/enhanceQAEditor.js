@@ -3,7 +3,7 @@ require('simplemde/dist/simplemde.min.css')
 require('script!highlight.js/lib/highlight.js')
 require('highlight.js/styles/github.css')
 
-require('script!shared/enhancers/bridge.js')
+require('script!shared/enhancers/confirmSaveChanges.js')
 
 import OldEditor from 'shared/OldEditor'
 import betterEditor from 'shared/BetterEditor'
@@ -30,5 +30,5 @@ export default function() {
   newEditor.codemirror.on('change', (instance, changeObj) => {
     oldEditor.setValue(newEditor.value())
     window.postMessage({ isDirty: true }, '*')
-  })  
+  })
 }
