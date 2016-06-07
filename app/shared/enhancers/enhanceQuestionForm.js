@@ -1,4 +1,5 @@
 require('shared/styles/enhanceQuestionForm')
+import enhanceAnswerButton from 'shared/enhancers/enhanceSubmitButton'
 
 export default function() {
   const questionForm = document.querySelector('#question-form')
@@ -6,4 +7,6 @@ export default function() {
 
   let title = questionForm.querySelector('#title')
   title.focus()
+
+  enhanceAnswerButton()
 }
