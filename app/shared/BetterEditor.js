@@ -4,8 +4,10 @@ import OldEditor from 'shared/OldEditor'
 import toolbar from 'shared/toolbar'
 
 export default (textarea) => {
-  return new SimpleMDE({
-    element: wrap(textarea),
+  let { element, container } = wrap(textarea)
+
+  let editor = new SimpleMDE({
+    element,
     toolbar,
     tabSize: 4,
     indentWithTabs: false,
@@ -19,6 +21,8 @@ export default (textarea) => {
       strikethrough: false
     }
   })
+
+  return editor
 }
 
 function wrap(textarea) {
@@ -30,5 +34,5 @@ function wrap(textarea) {
   textarea.parentNode.insertBefore(editorContainer, textarea.nextSibling)
   editorContainer.appendChild(textarea)
 
-  return textarea
+  return { element: textarea, container: editorContainer}
 }
