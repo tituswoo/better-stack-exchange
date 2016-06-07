@@ -3,6 +3,8 @@ require('simplemde/dist/simplemde.min.css')
 require('script!highlight.js/lib/highlight.js')
 require('highlight.js/styles/github.css')
 
+require('script!shared/enhancers/bridge.js')
+
 import OldEditor from 'shared/OldEditor'
 import betterEditor from 'shared/BetterEditor'
 
@@ -27,5 +29,6 @@ export default function() {
   // This is how changes are saved when you add/update a question/answer.
   newEditor.codemirror.on('change', (instance, changeObj) => {
     oldEditor.setValue(newEditor.value())
-  })
+    window.postMessage({ isDirty: true }, '*')
+  })  
 }
