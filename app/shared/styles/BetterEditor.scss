@@ -1,0 +1,38 @@
+.better-editor {
+  .CodeMirror {
+    font-size: 14px;
+    font-family: Consolas,Menlo,Monaco,"Lucida Console","Liberation Mono,DejaVu Sans Mono","Bitstream Vera Sans Mono","Courier New",monospace,sans-serif;
+
+    position: relative !important;
+    box-sizing: border-box;
+  }
+
+  .CodeMirror-fullscreen {
+    position: fixed !important;
+  }
+
+  .editor-statusbar {
+    margin-bottom: 5px;
+  }
+
+  .editor-toolbar {
+    border-radius: 0 !important;
+  }
+
+  .editor-preview {
+    word-wrap: break-word;
+    font-size: 15px;
+    line-height: 1.3;
+    font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+    background-color: white;
+  }
+
+  .editor-preview pre {
+    padding: 5px;
+    background-color: #eff0f1;
+  }
+
+  .editor-preview code {
+    font-size: 13px;
+  }
+}

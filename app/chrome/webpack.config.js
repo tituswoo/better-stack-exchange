@@ -19,7 +19,7 @@ module.exports = {
     alias: {
       shared: path.resolve('./app/shared')
     },
-    extensions: ['', '.webpack.js', '.web.js', '.js', '.css']
+    extensions: ['', '.webpack.js', '.web.js', '.js', '.css', '.scss']
   },
   module: {
     loaders: [
@@ -35,7 +35,17 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        exclude: /(node_modules)/,
+        loader: 'style!css'
+      },
+      {
+        test: /\.scss$/,
+        exclude: /(node_modules)/,
+        loader: 'style!css!sass'
+      },
+      {
+        test: /(simplemde\/dist\/simplemde.min.css)$/,
+        loader: 'style!css!sass!wrap?betterEditor'
       }
     ]
   },
@@ -43,5 +53,11 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: 'manifest.json', to: distPath }
     ])
-  ]
+  ],
+  wrap: {
+    betterEditor: {
+      before: ['.better-editor {'],
+      after: [ '}' ]
+    }
+  }
 }
