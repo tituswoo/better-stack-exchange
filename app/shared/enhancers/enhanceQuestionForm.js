@@ -1,4 +1,4 @@
-require('shared/styles/enhanceQuestionForm.css')
+require('shared/styles/enhanceQuestionForm')
 
 export default function() {
   const questionForm = document.querySelector('#question-form')
