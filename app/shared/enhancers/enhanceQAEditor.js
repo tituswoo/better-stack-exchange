@@ -1,7 +1,5 @@
 require('!script!strip?strip[]=console!simplemde/dist/simplemde.min.js')
 require('simplemde/dist/simplemde.min.css')
-// require('script!highlight.js/lib/highlight.js')
-// require('highlight.js/styles/github.css')
 
 require('script!shared/enhancers/confirmSaveChanges.js')
 
