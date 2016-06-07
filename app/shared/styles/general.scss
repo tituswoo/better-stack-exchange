@@ -39,3 +39,19 @@
   width: auto !important;
   margin-bottom: 10px;
 }
+
+#sidebar {
+  .sidebar-help {
+    opacity: 0.4;
+  }
+  &:hover .sidebar-help {
+    opacity: 1;
+  }
+}
+
+#footer {
+  position: relative;
+  #footer-sites {
+    display: none;
+  }
+}

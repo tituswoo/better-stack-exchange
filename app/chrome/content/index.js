@@ -1,4 +1,4 @@
-require('shared/styles/general.css')
+require('shared/styles/general')
 
 import enhanceQAEditor from 'shared/enhancers/enhanceQAEditor'
 import enhanceQuestionForm from 'shared/enhancers/enhanceQuestionForm'
