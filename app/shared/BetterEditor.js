@@ -22,7 +22,42 @@ export default (textarea) => {
     }
   })
 
+  stickyHeader(container)
+
   return editor
+}
+
+function stickyHeader(container) {
+
+  let toolbar = container.querySelector('.editor-toolbar')
+  let editor = container.querySelector('.CodeMirror-wrap')
+
+  const defaultToolbarStyles = { ...toolbar.style }
+  const defaultContainerStyles = { ...editor.style }
+
+  doSticky()
+
+  window.addEventListener('scroll', () => doSticky())
+
+  function doSticky() {
+    let distFromTop = container.getBoundingClientRect().top
+
+    if (distFromTop <= 0) {
+      toolbar.style.position = 'fixed'
+      toolbar.style.top = '0'
+      toolbar.style.zIndex = '1000'
+      toolbar.style.opacity = '1'
+      toolbar.style.backgroundColor = 'white'
+      toolbar.style.border = '1px solid #ddd'
+      toolbar.style.borderTop = 'none'
+      toolbar.style.width = editor.offsetWidth + 'px'
+      toolbar.style.boxSizing = 'border-box'
+      container.style.paddingTop = toolbar.offsetHeight + 'px'
+    } else {
+      toolbar.style = defaultToolbarStyles
+      container.style = defaultContainerStyles
+    }
+  }
 }
 
 function wrap(textarea) {
