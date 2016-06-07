@@ -1,10 +1,15 @@
+import { insertSnippet } from 'shared/InsertSnippet'
+
 const insertSnippetTool = {
   name: 'insert-snippet',
   className: 'fa fa-file-code-o',
   title: 'Insert Snippet',
   action(editor) {
-    document.querySelector('.wmd-snippet-button').firstChild.click()
-  },
+    insertSnippet((snippet) => {
+      const doc = editor.codemirror.getDoc()
+      doc.replaceSelection(snippet, 'around')
+    })
+  }
 }
 
 export default insertSnippetTool
