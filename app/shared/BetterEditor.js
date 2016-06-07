@@ -8,10 +8,15 @@ export default (textarea) => {
     element: wrap(textarea),
     toolbar,
     tabSize: 4,
+    indentWithTabs: false,
     spellChecker: false,
+    promptURLs: true,
     status: false,
     renderingConfig: {
       codeSyntaxHighlighting: true
+    },
+    parsingConfig: {
+      strikethrough: false
     }
   })
 }
