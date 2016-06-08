@@ -1,6 +1,3 @@
-require('!script!strip?strip[]=console!simplemde/dist/simplemde.min.js')
-require('simplemde/dist/simplemde.min.css')
-
 require('script!shared/enhancers/confirmSaveChanges.js')
 
 import OldEditor from 'shared/OldEditor'

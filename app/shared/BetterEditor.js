@@ -1,3 +1,5 @@
+require('script!simplemde/dist/simplemde.min.js')
+require('simplemde/dist/simplemde.min.css')
 require('shared/styles/BetterEditor')
 
 import OldEditor from 'shared/OldEditor'
@@ -25,6 +27,17 @@ export default (textarea) => {
   stickyHeader(container)
 
   return editor
+}
+
+function addCustomOverlay(cm) {
+  // future feature
+  // cm.addOverlay({
+  //   name: 'stackExchange',
+  //   token(stream, state) {
+  //     stream.skipToEnd()
+  //     return 'comment'
+  //   }
+  // })
 }
 
 function stickyHeader(container) {
