@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "Better Stack Exchange",
-	"description": "A revamped text editor with proper support for markdown and indentation. A cleaner user interface that doesn't get in your way. It's the little things that count!",
+	"description": "A revamped text editor that supports markdown, indentation, and more. A cleaner user interface that doesn't get in your way.",
 	"version": "0.0.1",
 	"author": "Titus Woo",
 	"homepage_url": "http://tituswoo.com",
