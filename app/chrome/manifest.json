@@ -6,6 +6,9 @@
 	"author": "Titus Woo",
 	"homepage_url": "http://tituswoo.com",
 	"permissions": [],
+	"icons": {
+		"128": "bse-icon.png"
+	},
 	"content_scripts": [
 		{
 			"matches": [

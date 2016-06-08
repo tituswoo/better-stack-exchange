@@ -51,7 +51,8 @@ module.exports = {
   },
   plugins: [
     new CopyWebpackPlugin([
-      { from: 'manifest.json', to: distPath }
+      { from: 'manifest.json', to: distPath },
+      { from: '../shared/assets/bse-icon.png' }
     ])
   ],
   wrap: {
