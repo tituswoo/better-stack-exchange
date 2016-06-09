@@ -7,7 +7,9 @@ export default function() {
 
   if (postEditor) {
     let item = postEditor.querySelector('.form-item td label[for="title"]')
-    item.parentNode.style.display = 'none'
+    if (item) {
+      item.parentNode.style.display = 'none'
+    }
   }
 
   // Remove the padding next to the title input element
