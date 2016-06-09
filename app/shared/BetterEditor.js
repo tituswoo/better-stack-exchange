@@ -54,8 +54,9 @@ function stickyHeader(container) {
 
   function doSticky() {
     let distFromTop = container.getBoundingClientRect().top
+    const isHidden = !container.offsetParent
 
-    if (distFromTop <= 0) {
+    if (distFromTop <= 0 && !isHidden) {
       toolbar.style.position = 'fixed'
       toolbar.style.top = '0'
       toolbar.style.zIndex = '1000'
