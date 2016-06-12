@@ -1,6 +1,7 @@
 const defaultSettings = {
   betterEditor: true,
-  stickyTopbar: true
+  stickyTopbar: true,
+  removeSitesInFooter: true
 }
 
 export const getSettings = (cb) => {

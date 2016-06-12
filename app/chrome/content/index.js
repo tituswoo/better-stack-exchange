@@ -4,6 +4,7 @@ import enhanceQAEditor from 'shared/enhancers/enhanceQAEditor'
 import enhanceQuestionForm from 'shared/enhancers/enhanceQuestionForm'
 import enhanceAnswerForm from 'shared/enhancers/enhanceAnswerForm'
 import stickyTopbar from 'shared/enhancers/stickyTopbar'
+import removeSitesInFooter from 'shared/enhancers/removeSitesInFooter'
 
 import { getSettings } from 'shared/Settings'
 
@@ -17,6 +18,11 @@ function enhance(settings) {
   // Sticky Toolbar:
   if (settings.stickyTopbar) {
     stickyTopbar()
+  }
+
+  // Low fat footer:
+  if (settings.removeSitesInFooter) {
+    removeSitesInFooter()
   }
 
   // If answering a question:
