@@ -5,6 +5,10 @@ require('shared/styles/BetterEditor')
 import OldEditor from 'shared/OldEditor'
 import toolbar from 'shared/toolbar'
 
+import { topBar } from 'shared/enhancers/stickyTopbar'
+
+import { getSettings } from 'shared/Settings'
+
 export default (textarea) => {
   let { element, container } = wrap(textarea)
 
@@ -24,7 +28,16 @@ export default (textarea) => {
     }
   })
 
-  stickyHeader(container)
+  getSettings((settings) => {
+    if (settings.stickyTopbar) {
+      const height = topBar().offsetHeight
+      console.log(height)
+      stickyHeader(container, height)
+    } else {
+      stickyHeader(container)
+    }
+  })
+
 
   return editor
 }
@@ -40,7 +53,7 @@ function addCustomOverlay(cm) {
   // })
 }
 
-function stickyHeader(container) {
+function stickyHeader(container, offset = 0) {
 
   let toolbar = container.querySelector('.editor-toolbar')
   let editor = container.querySelector('.CodeMirror-wrap')
@@ -48,17 +61,17 @@ function stickyHeader(container) {
   const defaultToolbarStyles = { ...toolbar.style }
   const defaultContainerStyles = { ...editor.style }
 
-  doSticky()
+  doSticky(offset)
 
-  window.addEventListener('scroll', () => doSticky())
+  window.addEventListener('scroll', () => doSticky(offset))
 
-  function doSticky() {
-    let distFromTop = container.getBoundingClientRect().top
+  function doSticky(offset) {
+    let distFromTop = container.getBoundingClientRect().top - offset
     const isHidden = !container.offsetParent
 
     if (distFromTop <= 0 && !isHidden) {
       toolbar.style.position = 'fixed'
-      toolbar.style.top = '0'
+      toolbar.style.top = offset + 'px'
       toolbar.style.zIndex = '1000'
       toolbar.style.opacity = '1'
       toolbar.style.backgroundColor = 'white'

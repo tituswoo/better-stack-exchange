@@ -16,10 +16,7 @@ getSettings((settings) => {
 function enhance(settings) {
   // Sticky Toolbar:
   if (settings.stickyTopbar) {
-    stickyTopbar(
-      document.querySelector('.topbar'),
-      document.querySelector('.container')
-    )
+    stickyTopbar()
   }
 
   // If answering a question:
