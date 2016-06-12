@@ -5,9 +5,13 @@
 	"version": "0.0.3",
 	"author": "Titus Woo",
 	"homepage_url": "http://tituswoo.com",
-	"permissions": [],
+	"permissions": ["storage"],
 	"icons": {
 		"128": "bse-icon.png"
+	},
+	"options_ui": {
+		"page": "options/index.html",
+		"chrome_style": true
 	},
 	"content_scripts": [
 		{

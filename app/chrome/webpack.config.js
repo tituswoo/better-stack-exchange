@@ -8,7 +8,8 @@ const distPath = path.join(__dirname, '../../dist/chrome')
 module.exports = {
   context: __dirname,
   entry: {
-    'content': './content/index.js'
+    'content': './content/index.js',
+    'options': ['./options/index.js', './options/index.html']
   },
   output: {
     path: distPath,
@@ -46,6 +47,11 @@ module.exports = {
       {
         test: /(simplemde\/dist\/simplemde.min.css)$/,
         loader: 'style!css!sass!wrap?betterEditor'
+      },
+      {
+        test: /\.html$/,
+        exclude: /(node_modules)/,
+        loader: 'file?name=[path][name].[ext]'
       }
     ]
   },
