@@ -7,7 +7,7 @@ export default function() {
   const height = topBar().offsetHeight
 
   style.position = 'fixed'
-  style.zIndex = '10000'
+  style.zIndex = '1'
 
   container().style.paddingTop = height + 'px'
 }
