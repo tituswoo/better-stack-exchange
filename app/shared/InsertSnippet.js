@@ -3,7 +3,9 @@ import OldEditor from 'shared/OldEditor'
 export const insertSnippet = (cb) => {
   let oldEditor = OldEditor()
   oldEditor.setValue('')
-  document.querySelector('.wmd-snippet-button').firstChild.click()
+  const codeBtn =  document.querySelector('.wmd-snippet-button') ||
+    document.querySelector('.wmd-button[title*="snippet"]');
+  codeBtn.firstChild.click();
   let checker = setInterval(() => {
     let snippetWindow = document.querySelector('.popup-snippet')
     if (!snippetWindow) {
