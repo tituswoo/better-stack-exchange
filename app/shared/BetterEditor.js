@@ -14,7 +14,7 @@ export default (textarea) => {
 
   let editor = new SimpleMDE({
     element,
-    toolbar,
+    toolbar: toolbar(),
     tabSize: 4,
     indentWithTabs: false,
     spellChecker: false,
