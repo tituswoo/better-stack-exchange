@@ -5,10 +5,12 @@
 
     position: relative !important;
     box-sizing: border-box;
+    z-index: 0 !important;
   }
 
   .CodeMirror-fullscreen {
     position: fixed !important;
+    z-index: 1 !important;
   }
 
   .editor-statusbar {
